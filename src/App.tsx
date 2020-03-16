@@ -69,6 +69,11 @@ function Forecast({ periods = [] }: { periods: any }) {
       <div className="d-flex flex-wrap">
         {/* TODO: group with a wrapper element so that day/night combos wrap as a block*/}
         {periods.map((p: any, idx: number) => {
+          const precipMatch = /Chance of precipitation is (\d.?)%/.exec(
+            p.detailedForecast,
+          );
+          const precipProbability =
+            precipMatch && precipMatch[1] ? precipMatch[1] : 0;
           return (
             // <Tooltip label={p.detailedForecast}>
             <div
@@ -83,11 +88,9 @@ function Forecast({ periods = [] }: { periods: any }) {
                   idx > 0 ? (p.isDaytime ? "#fe4" : "#55e") : "#5a5"
                 } 76px, #fff 78px)`,
                 transform: `${
-                  idx > 0
-                    ? !p.isDaytime
-                      ? "translateY(28px)"
-                      : ""
-                    : "translateY(0)"
+                  // idx > 0 ?
+                  !p.isDaytime ? "translateY(24px) scale(0.9)" : ""
+                  // : "translateY(0)"
                 }`,
               }}
             >
@@ -120,7 +123,11 @@ function Forecast({ periods = [] }: { periods: any }) {
                 {p.name}
               </h4>
               <p className="d-flex mb-0 mt-4">
-                <i className="fas fa-temperature-high" />
+                <i
+                  className={`fas ${
+                    p.isDaytime ? "fa-temperature-high" : "fa-temperature-low"
+                  }`}
+                />
                 <div
                   className={`ml-auto font-weight-bold ${
                     p.isDaytime ? "text-danger" : "text-info"
@@ -145,6 +152,23 @@ function Forecast({ periods = [] }: { periods: any }) {
                   <span>{p.windSpeed}</span> <Unit>{p.windDirection}</Unit>
                 </div>
               </p>
+              <p className="d-flex mb-0">
+                <i className="fas fa-cloud-sun-rain" />
+                <div
+                  className={`ml-auto font-weight-bold ${
+                    precipProbability >= 80
+                      ? "text-danger"
+                      : precipProbability >= 50
+                      ? "text-warning"
+                      : precipProbability >= 10
+                      ? "text-info"
+                      : "text-muted"
+                  }`}
+                >
+                  <i className="fas fa-tint" /> <span>{precipProbability}</span>
+                  <Unit>{"%"}</Unit>
+                </div>
+              </p>
               <p style={{ minHeight: 48 }} className="mt-3">
                 {/* <Tooltip label={p.detailedForecast}> */}
                 <span>{p.shortForecast}</span>
@@ -152,7 +176,9 @@ function Forecast({ periods = [] }: { periods: any }) {
               </p>
               <p>
                 <img
-                  src={p.icon.replace("medium", "large")}
+                  src={
+                    p.icon.replace("size=medium", "size=250") + `&fontsize=14`
+                  }
                   alt=""
                   width="250px"
                   className="rounded-lg border shadow-sm mx-n3 mb-n3 forecast-image"
