@@ -24,7 +24,7 @@ const urlStateAlerts = fetchify(
 
 const urlForecast = fetchify(
   (stationId: string, gridX: number, gridY: number) =>
-    urlBase + `/gridpoints/${stationId}/${gridX},${gridY}/forecast`,
+    urlBase + `/gridpoints/${stationId}/${gridX || 50},${gridY || 50}/forecast`,
 );
 
 const urlGridpoints = fetchify(
