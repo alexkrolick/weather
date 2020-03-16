@@ -1,5 +1,6 @@
 body {
   font-family: "IBM Plex Sans";
+  font-size: 15px;
 }
 
 /* Utils */
@@ -19,7 +20,7 @@ body {
 /* Reach UI */
 
 [data-reach-tooltip] {
-  max-width: 250px;
+  max-width: 200px;
   white-space: normal;
   color: white;
   background-color: #222;
@@ -52,7 +53,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  /* max-width: 250px; */
+  /* max-width: 200px; */
   font-size: 0.85rem;
   white-space: normal;
   color: white;
@@ -67,4 +68,9 @@ body {
 .forecast-card:hover .forecast-detailedForecast,
 .forecast-card:active .forecast-detailedForecast {
   display: block;
+}
+
+.flush-bottom {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
 }

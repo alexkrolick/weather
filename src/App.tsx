@@ -83,13 +83,13 @@ function Forecast({ periods = [] }: { periods: any }) {
                   : "mx-2 shadow rounded-lg"
               }`}
               style={{
-                width: 250,
+                width: 200,
                 backgroundImage: `linear-gradient(${
                   idx > 0 ? (p.isDaytime ? "#fe4" : "#55e") : "#5a5"
                 } 76px, #fff 78px)`,
                 transform: `${
                   // idx > 0 ?
-                  !p.isDaytime ? "translateY(24px) scale(0.9)" : ""
+                  !p.isDaytime ? "translateY(0) scale(0.9)" : ""
                   // : "translateY(0)"
                 }`,
               }}
@@ -120,7 +120,7 @@ function Forecast({ periods = [] }: { periods: any }) {
                   idx > 0 && p.isDaytime ? "text-body" : "text-light"
                 }`}
               >
-                {p.name}
+                {p.name.replace(" Night", "")}
               </h4>
               <p className="d-flex mb-0 mt-4">
                 <i
@@ -169,22 +169,25 @@ function Forecast({ periods = [] }: { periods: any }) {
                   <Unit>{"%"}</Unit>
                 </div>
               </p>
-              <p style={{ minHeight: 48 }} className="mt-3">
-                {/* <Tooltip label={p.detailedForecast}> */}
-                <span>{p.shortForecast}</span>
-                {/* </Tooltip> */}
-              </p>
+              {/* <p style={{ minHeight: 48 }} className="mt-3"> */}
+              {/* <Tooltip label={p.detailedForecast}> */}
+              {/* <span>{p.shortForecast}</span> */}
+              {/* </Tooltip> */}
+              {/* </p> */}
               <p>
                 <img
                   src={
-                    p.icon.replace("size=medium", "size=250") + `&fontsize=14`
+                    p.icon.replace("size=medium", "size=200") + `&fontsize=14`
                   }
                   alt=""
-                  width="250px"
-                  className="rounded-lg border shadow-sm mx-n3 mb-n3 forecast-image"
+                  width="200px"
+                  className="rounded-lg border shadow-sm mx-n3 mb-n3 mt-3 forecast-image flush-bottom"
                 />
               </p>
-              <div className="forecast-detailedForecast">
+              <div className="forecast-detailedForecast flush-bottom">
+                <p className="font-weight-bold border-bottom pb-3">
+                  {p.shortForecast}
+                </p>
                 <p>{p.detailedForecast}</p>
               </div>
             </div>
