@@ -32,12 +32,39 @@ body {
 
 /* Forecast */
 
+.forecast-card {
+  position: relative;
+}
+
 .forecast-image {
-  opacity: 0.8;
+  opacity: 1;
   transition: opacity 0.2s;
 }
 
 .forecast-card:hover .forecast-image,
 .forecast-card:hover .forecast-image {
-  opacity: 1;
+  opacity: 0.3;
+}
+
+.forecast-detailedForecast {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* max-width: 250px; */
+  font-size: 0.85rem;
+  white-space: normal;
+  color: white;
+  background-color: #222;
+  font-family: "IBM Plex Sans Condensed";
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px 12px;
+  box-shadow: 0px 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-card:hover .forecast-detailedForecast,
+.forecast-card:active .forecast-detailedForecast {
+  display: block;
 }
