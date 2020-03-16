@@ -218,6 +218,18 @@ function App() {
     }
   }, [state.station, gridpoints.result]);
 
+  React.useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        dispatch({ type: "lon/set", payload: { lon: coords.longitude } });
+        dispatch({ type: "lat/set", payload: { lat: coords.latitude } });
+      },
+      () => {
+        /* ignore error */
+      },
+    );
+  }, []);
+
   return (
     <>
       <div
