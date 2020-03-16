@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useAsync } from "react-async-hook";
 
 // https://www.weather.gov/documentation/services-web-api
@@ -15,7 +14,7 @@ const fetchify = (getUrl: UrlMaker) => ({
   },
 });
 
-const defaultAuth = "weather-gov-app-sBpynqRNf4NADjkd"; // send as user-agent
+// const defaultAuth = "weather-gov-app-sBpynqRNf4NADjkd"; // send as user-agent
 
 const urlBase = "https://api.weather.gov";
 

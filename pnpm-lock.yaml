@@ -1,4 +1,5 @@
 dependencies:
+  '@reach/tooltip': 0.9.0_react-dom@16.13.0+react@16.13.0
   '@testing-library/cypress': 6.0.0_cypress@4.1.0
   '@testing-library/jest-dom': 4.2.4
   '@testing-library/react': 9.5.0_react-dom@16.13.0+react@16.13.0
@@ -9,8 +10,11 @@ dependencies:
   '@types/react': 16.9.23
   '@types/react-dom': 16.9.5
   '@xstate/react': 0.8.1_react@16.13.0+xstate@4.8.0
+  add: 2.0.6
+  bootstrap-icons: 1.0.0-alpha2
   cypress: 4.1.0
   cypress-react-unit-test: 2.4.3
+  date-fns: 2.11.0
   google-map-react: 1.1.6_react-dom@16.13.0+react@16.13.0
   react: 16.13.0
   react-async-hook: 3.6.1_react@16.13.0
@@ -1377,6 +1381,88 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
+  /@reach/auto-id/0.9.0_react-dom@16.13.0+react@16.13.0:
+    dependencies:
+      '@reach/utils': 0.9.0_react-dom@16.13.0+react@16.13.0
+      react: 16.13.0
+      react-dom: 16.13.0_react@16.13.0
+      tslib: 1.11.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-9/aXl+dT0pOenvpkB2kkmQnpMDlmSk8ZkBYmYFzFz3eA4PZFNuXcHVzQevFRhc0HVlskPjxwPNf92EkI9rdFOw==
+  /@reach/observe-rect/1.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-kE+jvoj/OyJV24C03VvLt5zclb9ArJi04wWXMMFwQvdZjdHoBlN4g0ZQFjyy/ejPF1Z/dpUD5dhRdBiUmIGZTA==
+  /@reach/portal/0.9.0_react-dom@16.13.0+react@16.13.0:
+    dependencies:
+      '@reach/utils': 0.9.0_react-dom@16.13.0+react@16.13.0
+      react: 16.13.0
+      react-dom: 16.13.0_react@16.13.0
+      tslib: 1.11.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-V3xmdKCWLyKwAdSvvF4EvO8wKPGInQsJXmCuo9c7RU5ZCDnErCQmiD/jqyD78UzGF0snXATiGHuQV0h/Ppjt0w==
+  /@reach/rect/0.9.0_react-dom@16.13.0+react@16.13.0:
+    dependencies:
+      '@reach/observe-rect': 1.1.0
+      '@reach/utils': 0.9.0_react-dom@16.13.0+react@16.13.0
+      prop-types: 15.7.2
+      react: 16.13.0
+      react-dom: 16.13.0_react@16.13.0
+      tslib: 1.11.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-ACUgv3lt6DOkgq5QmkfpTPJjVZoNULJ/u3cXg0UhaktzCxkUupIY2bue1X82MM3hf5wCfEdoZVnFi7k9KNJeAw==
+  /@reach/tooltip/0.9.0_react-dom@16.13.0+react@16.13.0:
+    dependencies:
+      '@reach/auto-id': 0.9.0_react-dom@16.13.0+react@16.13.0
+      '@reach/portal': 0.9.0_react-dom@16.13.0+react@16.13.0
+      '@reach/rect': 0.9.0_react-dom@16.13.0+react@16.13.0
+      '@reach/utils': 0.9.0_react-dom@16.13.0+react@16.13.0
+      '@reach/visually-hidden': 0.9.0_react-dom@16.13.0+react@16.13.0
+      prop-types: 15.7.2
+      react: 16.13.0
+      react-dom: 16.13.0_react@16.13.0
+      tslib: 1.11.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-dhDyyQbKoeMZttvgr5fWmBshxm7rfbe5EQqA9svLN+Ym6fJpIk1A9JhgPWsPhrxCKME+Nxo3AN3sItXggkcRTw==
+  /@reach/utils/0.9.0_react-dom@16.13.0+react@16.13.0:
+    dependencies:
+      react: 16.13.0
+      react-dom: 16.13.0_react@16.13.0
+      tslib: 1.11.1
+      warning: 4.0.3
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-cmiykRaxuCysVTsSY3PgrLjySnEIt1PLiSYKh5rAH8nYyEmaOCtw0vaNItFAiqQIjfrxkixmcUE8dyD8kqVuJA==
+  /@reach/visually-hidden/0.9.0_react-dom@16.13.0+react@16.13.0:
+    dependencies:
+      react: 16.13.0
+      react-dom: 16.13.0_react@16.13.0
+      tslib: 1.11.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    resolution:
+      integrity: sha512-aiPss8hQMOz/NV3L9yl3r2brLMpYV76yB2HhqbhB0EstbNMb6a2eDUBo+mOVFhOdKDxlNJmqHdwz/aiBh8GP6Q==
   /@samverschueren/stream-to-observable/0.3.0:
     dependencies:
       any-observable: 0.3.0
@@ -2019,6 +2105,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-add7dgA5ppRPxCFJoAGfMDi7PIBXq1RtGo7BhbLaxwrXPOmw8gq48Y9ozT01hUKy9byMjlR20EJhu5zlkErEkg==
+  /add/2.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
   /address/1.1.2:
     dev: false
     engines:
@@ -2674,6 +2764,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+  /bootstrap-icons/1.0.0-alpha2:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-7Tsip8n6GX0zoMm3l5eHWFYynq9CX8QlnWEJ1O42GwtwKOcc4bNZTW1tdhGGS+Q6oSgpTvvi08fZkdyfrqPp2w==
   /brace-expansion/1.1.11:
     dependencies:
       balanced-match: 1.0.0
@@ -3838,6 +3934,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+  /date-fns/2.11.0:
+    dev: false
+    resolution:
+      integrity: sha512-8P1cDi8ebZyDxUyUprBXwidoEtiQAawYPGvpfb+Dg0G6JrQ+VozwOmm91xYC0vAv1+0VmLehEPb+isg4BGUFfA==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -11406,6 +11506,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
+  /warning/4.0.3:
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
+    resolution:
+      integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
   /watchpack/1.6.0:
     dependencies:
       chokidar: 2.1.8
@@ -11918,6 +12024,7 @@ packages:
     resolution:
       integrity: sha1-lSj0QtqxsihOWLQ3m7GU4i4MQAU=
 specifiers:
+  '@reach/tooltip': ^0.9.0
   '@testing-library/cypress': ^6.0.0
   '@testing-library/jest-dom': ^4.2.4
   '@testing-library/react': ^9.3.2
@@ -11928,8 +12035,11 @@ specifiers:
   '@types/react': ^16.9.0
   '@types/react-dom': ^16.9.0
   '@xstate/react': ^0.8.1
+  add: ^2.0.6
+  bootstrap-icons: ^1.0.0-alpha2
   cypress: ^4.1.0
   cypress-react-unit-test: ^2.4.3
+  date-fns: ^2.11.0
   google-map-react: ^1.1.6
   react: ^16.13.0
   react-async-hook: ^3.6.1

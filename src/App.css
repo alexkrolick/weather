@@ -1,0 +1,43 @@
+body {
+  font-family: "IBM Plex Sans";
+}
+
+/* Utils */
+.text-condensed {
+  font-family: "IBM Plex Sans Condensed";
+}
+
+.text-mono {
+  font-family: "IBM Plex Mono";
+  font-size: 90%;
+}
+
+.text-serif {
+  font-family: "IBM Plex Serif";
+}
+
+/* Reach UI */
+
+[data-reach-tooltip] {
+  max-width: 250px;
+  white-space: normal;
+  color: white;
+  background-color: #222;
+  font-family: "IBM Plex Sans Condensed";
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px 12px;
+  box-shadow: 0px 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Forecast */
+
+.forecast-image {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.forecast-card:hover .forecast-image,
+.forecast-card:hover .forecast-image {
+  opacity: 1;
+}
