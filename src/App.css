@@ -38,7 +38,8 @@ body {
   width: 200px;
 }
 
-@media (max-width: 400px) {
+/* mobile ish */
+@media (max-width: 600px) {
   .forecast-card {
     width: 100%;
   }
