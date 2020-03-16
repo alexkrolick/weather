@@ -80,19 +80,18 @@ function Forecast({ periods = [] }: { periods: any }) {
           return (
             // <Tooltip label={p.detailedForecast}>
             <div
-              className={`forecast-card px-3 pt-2 pb-0 mb-5 mt-5 border ${
+              className={`forecast-card px-3 pt-2 pb-0 mb-3 mb-sm-5 mt-sm-5 border ${
                 p.isDaytime
                   ? "mx-2 shadow-sm rounded-lg"
                   : "mx-2 shadow-sm rounded-lg"
               }`}
               style={{
-                width: 200,
                 backgroundImage: `linear-gradient(${
                   idx > 0 ? (p.isDaytime ? "#fe4" : "#55e") : "#5a5"
                 } 76px, #fff 78px)`,
                 transform: `${
                   // idx > 0 ?
-                  !p.isDaytime ? "translateY(0) scale(0.93)" : ""
+                  !p.isDaytime ? "translateY(0) scale(1)" : ""
                   // : "translateY(0)"
                 }`,
               }}
@@ -194,11 +193,9 @@ function Forecast({ periods = [] }: { periods: any }) {
                   <Unit>{"%"}</Unit>
                 </div>
               </p>
-              {/* <p style={{ minHeight: 48 }} className="mt-3"> */}
-              {/* <Tooltip label={p.detailedForecast}> */}
-              {/* <span>{p.shortForecast}</span> */}
-              {/* </Tooltip> */}
-              {/* </p> */}
+              <div className="d-block d-sm-none mt-3">
+                <span>{p.shortForecast}</span>
+              </div>
               <p>
                 <img
                   src={
@@ -206,7 +203,7 @@ function Forecast({ periods = [] }: { periods: any }) {
                   }
                   alt=""
                   width="200px"
-                  className="rounded-lg border shadow-sm mx-n3 mb-n3 mt-3 forecast-image flush-bottom"
+                  className="rounded-lg border shadow-sm d-none d-sm-block mx-sm-n3 mb-n3 mt-3 forecast-image flush-bottom"
                 />
               </p>
               <div className="forecast-detailedForecast flush-bottom">

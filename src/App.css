@@ -35,6 +35,13 @@ body {
 
 .forecast-card {
   position: relative;
+  width: 200px;
+}
+
+@media (max-width: 400px) {
+  .forecast-card {
+    width: 100%;
+  }
 }
 
 .forecast-image {
