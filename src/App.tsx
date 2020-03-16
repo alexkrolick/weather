@@ -74,6 +74,9 @@ function Forecast({ periods = [] }: { periods: any }) {
           );
           const precipProbability =
             precipMatch && precipMatch[1] ? precipMatch[1] : 0;
+          const windspeedMatch = /(\d.?) mph/.exec(p.windSpeed);
+          const windspeedMax =
+            windspeedMatch && windspeedMatch[1] ? windspeedMatch[1] : 0;
           return (
             // <Tooltip label={p.detailedForecast}>
             <div
@@ -127,28 +130,50 @@ function Forecast({ periods = [] }: { periods: any }) {
                   className={`fas ${
                     p.isDaytime ? "fa-temperature-high" : "fa-temperature-low"
                   }`}
-                />
-                <div
-                  className={`ml-auto font-weight-bold ${
-                    p.isDaytime ? "text-danger" : "text-info"
-                  }`}
-                >
-                  {p.isDaytime ? (
-                    <small className="font-weight-bold">
-                      <i className="fas fa-sort-up" /> Hi
-                    </small>
-                  ) : (
-                    <small className="font-weight-bold">
-                      <i className="fas fa-sort-down" /> Lo
-                    </small>
-                  )}{" "}
-                  <span className="">{p.temperature}</span>
-                  <Unit>&deg;{p.temperatureUnit}</Unit>
+                />{" "}
+                {p.isDaytime ? (
+                  <small className="font-weight-bold">
+                    <i className="fas fa-sort-up" />
+                  </small>
+                ) : (
+                  <small className="font-weight-bold">
+                    <i className="fas fa-sort-down" />
+                  </small>
+                )}
+                <div className={`ml-auto font-weight-bold`}>
+                  <span
+                    className={`${
+                      p.temperature >= 100 || p.temperature <= 0
+                        ? "text-danger"
+                        : p.temperature >= 80 || p.temperature <= 20
+                        ? "text-warning"
+                        : p.temperature >= 65 || p.temperature <= 32
+                        ? "text-success"
+                        : p.temperature >= 32 || p.temperature <= 65
+                        ? "text-info"
+                        : "text-muted"
+                    }`}
+                  >
+                    <span className="">{p.temperature}</span>
+                    <Unit>&deg;{p.temperatureUnit}</Unit>
+                  </span>
                 </div>
               </p>
               <p className="d-flex mb-0">
                 <i className="fas fa-wind" />
-                <div className="ml-auto font-weight-bold">
+                <div
+                  className={`ml-auto font-weight-bold ${
+                    windspeedMax >= 70
+                      ? "text-danger"
+                      : windspeedMax >= 40
+                      ? "text-warning"
+                      : windspeedMax >= 25
+                      ? "text-info"
+                      : windspeedMax >= 15
+                      ? "text-muted"
+                      : "text-muted"
+                  }`}
+                >
                   <span>{p.windSpeed}</span> <Unit>{p.windDirection}</Unit>
                 </div>
               </p>
