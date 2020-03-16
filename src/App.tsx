@@ -224,8 +224,9 @@ function App() {
         dispatch({ type: "lon/set", payload: { lon: coords.longitude } });
         dispatch({ type: "lat/set", payload: { lat: coords.latitude } });
       },
-      () => {
+      err => {
         /* ignore error */
+        console.error(err);
       },
     );
   }, []);
