@@ -77,10 +77,10 @@ function Forecast({ periods = [] }: { periods: any }) {
           return (
             // <Tooltip label={p.detailedForecast}>
             <div
-              className={`forecast-card px-3 pt-2 pb-0 mb-5 mt-5 ${
+              className={`forecast-card px-3 pt-2 pb-0 mb-5 mt-5 border ${
                 p.isDaytime
-                  ? "mx-2 shadow rounded-lg"
-                  : "mx-2 shadow rounded-lg"
+                  ? "mx-2 shadow-sm rounded-lg"
+                  : "mx-2 shadow-sm rounded-lg"
               }`}
               style={{
                 width: 200,
@@ -89,7 +89,7 @@ function Forecast({ periods = [] }: { periods: any }) {
                 } 76px, #fff 78px)`,
                 transform: `${
                   // idx > 0 ?
-                  !p.isDaytime ? "translateY(0) scale(0.9)" : ""
+                  !p.isDaytime ? "translateY(0) scale(0.93)" : ""
                   // : "translateY(0)"
                 }`,
               }}
@@ -207,6 +207,7 @@ function App() {
       actionHandlers[action.type](state, action),
     actionHandlers.init(),
   );
+  const [hideNights, setHideNights] = React.useState(false);
 
   const gridpoints = weather.useGridpoints({ lat: state.lat, lon: state.lon });
   const alerts = weather.useAlerts();
@@ -253,32 +254,7 @@ function App() {
         </GMap>
       </div>
 
-      <div>
-        <button
-          className="float-right btn"
-          onClick={() =>
-            setMapHeight(
-              mapHeight === MAP_COLLAPSED_HEIGHT
-                ? MAP_EXPANDED_HEIGHT
-                : MAP_COLLAPSED_HEIGHT,
-            )
-          }
-        >
-          <i
-            className={`${
-              mapHeight === MAP_COLLAPSED_HEIGHT
-                ? "fas fa-caret-down"
-                : "fas fa-caret-up"
-            }`}
-          ></i>{" "}
-          <i
-            className={`${
-              mapHeight === MAP_COLLAPSED_HEIGHT
-                ? "fas fa-map-marked-alt"
-                : "fas fa-map-marked-alt"
-            }`}
-          ></i>
-        </button>
+      <div className="d-flex">
         <form className="form-inline">
           <input
             value={state.lat}
@@ -307,13 +283,48 @@ function App() {
             className="form-control m-1"
           />
         </form>
+        <button
+          className="btn btn-sm ml-auto"
+          onClick={() => setHideNights(v => !v)}
+        >
+          <i className="fas fa-moon"></i> {hideNights ? "Show" : "Hide"}
+        </button>
+        <button
+          className="btn"
+          onClick={() =>
+            setMapHeight(
+              mapHeight === MAP_COLLAPSED_HEIGHT
+                ? MAP_EXPANDED_HEIGHT
+                : MAP_COLLAPSED_HEIGHT,
+            )
+          }
+        >
+          <i
+            className={`${
+              mapHeight === MAP_COLLAPSED_HEIGHT
+                ? "fas fa-caret-down"
+                : "fas fa-caret-up"
+            }`}
+          ></i>{" "}
+          <i
+            className={`${
+              mapHeight === MAP_COLLAPSED_HEIGHT
+                ? "fas fa-map-marked-alt"
+                : "fas fa-map-marked-alt"
+            }`}
+          ></i>
+        </button>
       </div>
       {/* 
       <div className="p-3">
         <h2>Forecast</h2>
       </div> */}
 
-      <Forecast {...(forecast.result?.properties || {})} />
+      <Forecast
+        periods={(
+          (forecast.result?.properties || {}).periods || []
+        ).filter((p: any) => (hideNights ? p.isDaytime : true))}
+      />
 
       <details className="p-4">
         <summary>Raw Data</summary>
